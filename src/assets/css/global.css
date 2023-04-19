@@ -1,0 +1,17 @@
+@import url('./reset.css');
+
+:root {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+label,
+input,
+select,
+option,
+textarea {
+  font-size: 1rem;
+}
