@@ -24,8 +24,14 @@ section {
 }
 
 img {
-  width: 263px;
-  height: 263px;
   object-fit: contain;
+  width: auto;
+  height: 263px;
+  animation-name: pulsar;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 </style>
