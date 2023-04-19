@@ -41,11 +41,6 @@ textarea {
   resize: vertical;
 }
 
-textarea:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 8px;
-}
-
 button {
   padding: 8px;
   border-radius: 8px;

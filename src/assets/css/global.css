@@ -62,6 +62,13 @@ textarea {
   font-weight: 500;
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 8px;
+}
+
 body {
   color: var(--color-text);
   background-color: var(--color-bg-100);
