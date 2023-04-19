@@ -45,20 +45,23 @@ export default {
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-bg-300);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 }
 
 .myPost.detailed {
   flex-direction: column;
   align-items: stretch;
+  backdrop-filter: blur(2px);
 }
 
 .myPost__top {
   padding: 22px 25px 24px;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 
 .myPost.detailed .myPost__top {
   padding: 19px 23px 30px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 .myPost__top h3 {
@@ -75,11 +78,13 @@ export default {
   justify-content: space-between;
   background-color: var(--color-bg-500);
   align-self: stretch;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 .myPost.detailed .myPost__bottom {
   display: flex;
   align-items: center;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 .myPost__author {
