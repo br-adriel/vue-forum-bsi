@@ -36,14 +36,8 @@ form {
 textarea {
   width: 100%;
   resize: vertical;
-  border-radius: var(--border-radius);
   min-height: calc(1rem + 4px);
   padding: 0;
-  caret-color: var(--color-primary);
-  background-color: var(--color-bg-300);
-  border: none;
-  color: inherit;
-  font-weight: 500;
   resize: vertical;
 }
 
