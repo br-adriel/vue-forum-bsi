@@ -1,0 +1,69 @@
+<template>
+  <form>
+    <textarea
+      name="postContent"
+      id="postContent"
+      rows="1"
+      placeholder="Escreva aqui sua duvida ou problema..."
+    ></textarea>
+    <button type="submit" title="Publicar">
+      <img
+        src="@/assets/img/icons/icon-send.svg"
+        alt="Ícone de avião de papel"
+      />
+    </button>
+  </form>
+</template>
+
+<script>
+export default {
+  name: 'MyCreatePostForm',
+};
+</script>
+
+<style scoped>
+form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-300);
+  padding: 30px 25px;
+  border-radius: var(--border-radius);
+  gap: 20px;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  border-radius: var(--border-radius);
+  min-height: calc(1rem + 4px);
+  padding: 0;
+  caret-color: var(--color-primary);
+  background-color: var(--color-bg-300);
+  border: none;
+  color: inherit;
+  font-weight: 500;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 8px;
+}
+
+button {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+button img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+button:hover {
+  background-color: var(--color-bg-500);
+}
+</style>

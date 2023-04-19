@@ -26,6 +26,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-bg-100);
+}
+
 body,
 label,
 input,
