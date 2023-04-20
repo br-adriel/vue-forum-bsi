@@ -98,3 +98,8 @@ button:hover {
 button:focus {
   outline: 2px solid var(--color-primary);
 }
+
+.container {
+  width: min(100%, 1444px);
+  margin: 0 auto;
+}
