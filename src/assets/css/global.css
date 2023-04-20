@@ -17,9 +17,12 @@
   --font-size-normal-lg: 1.25rem; /* 20px */
   --font-size-lg: 1.375rem; /* 22px */
 
+  /* sombras */
+  --shadow: 0px 2px 4px rgba(255, 121, 198, 0.25);
+  --shadow-top-right: 4px 0px 10px rgba(255, 121, 198, 0.25);
+
   /* outras variaveis */
   --border-radius: 4px;
-  --shadow: 0px 2px 4px rgba(255, 121, 198, 0.25);
 }
 
 * {
