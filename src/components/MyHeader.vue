@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <p>Perfil do usuário</p>
+      <MyUserProfile />
       <MySearchForm />
     </div>
   </header>
@@ -9,10 +9,11 @@
 
 <script>
 import MySearchForm from './MySearchForm.vue';
+import MyUserProfile from './MyUserProfile.vue';
 
 export default {
   name: 'MyHeader',
-  components: { MySearchForm },
+  components: { MySearchForm, MyUserProfile },
 };
 </script>
 
