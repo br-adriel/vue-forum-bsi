@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: VUE_APP_process.env.apiKey,
-  authDomain: VUE_APP_process.env.authDomain,
-  projectId: VUE_APP_process.env.projectId,
-  storageBucket: VUE_APP_process.env.storageBucket,
-  messagingSenderId: VUE_APP_process.env.messagingSenderId,
-  appId: VUE_APP_process.env.appId,
+  apiKey: process.env.VUE_APP_apiKey,
+  authDomain: process.env.VUE_APP_authDomain,
+  projectId: process.env.VUE_APP_projectId,
+  storageBucket: process.env.VUE_APP_storageBucket,
+  messagingSenderId: process.env.VUE_APP_messagingSenderId,
+  appId: process.env.VUE_APP_appId,
 };
 
 export const app = initializeApp(firebaseConfig);
