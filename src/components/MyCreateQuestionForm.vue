@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'MyCreatePostForm',
+  name: 'MyCreateQuestionForm',
   data() {
     return {
       question: {

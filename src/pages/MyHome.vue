@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <main>
-      <MyCreatePostForm />
+      <MyCreateQuestionForm />
       <section>
         <h2>Dúvidas e Perguntas</h2>
         <div class="questions">
@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import MyCreatePostForm from '@/components/MyCreatePostForm.vue';
+import MyCreateQuestionForm from '@/components/MyCreateQuestionForm.vue';
 import MyPost from '@/components/MyPost.vue';
 
 export default {
   name: 'MyHome',
-  components: { MyCreatePostForm, MyPost },
+  components: { MyCreateQuestionForm, MyPost },
   computed: {
     questions() {
       return this.$store.getters.getQuestions;
