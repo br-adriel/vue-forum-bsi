@@ -3,6 +3,7 @@ import {
   addDoc,
   collection,
   getDocs,
+  limit,
   orderBy,
   query,
   serverTimestamp,
@@ -13,6 +14,7 @@ export default createStore({
   state: {
     isAppStarting: true,
     questions: [],
+    recentQuestions: [],
   },
   getters: {
     getIsAppStarting(state) {
@@ -20,6 +22,9 @@ export default createStore({
     },
     getQuestions(state) {
       return state.questions;
+    },
+    getRecentQuestions(state) {
+      return state.recentQuestions;
     },
   },
   mutations: {
@@ -32,6 +37,15 @@ export default createStore({
     addQuestion(state, question) {
       state.questions.unshift(question);
     },
+    setRecentQuestions(state, questions) {
+      state.recentQuestions = questions;
+    },
+    addRecentQuestion(state, question) {
+      state.recentQuestions.unshift(question);
+      if (state.recentQuestions.length > 10) {
+        state.recentQuestions.pop();
+      }
+    },
   },
   actions: {
     appStarted({ commit }) {
@@ -42,9 +56,11 @@ export default createStore({
     async createQuestion({ commit }, question) {
       const savedQuestion = await addDoc(collection(db, 'questions'), {
         ...question,
+        interactions: 0,
         createdAt: serverTimestamp(),
       });
       commit('addQuestion', { id: savedQuestion.id, ...question });
+      commit('addRecentQuestion', { id: savedQuestion.id, ...question });
     },
     async loadQuestions({ commit }) {
       const q = query(
@@ -59,6 +75,21 @@ export default createStore({
         };
       });
       commit('setQuestions', questions);
+    },
+    async loadRecentQuestions({ commit }) {
+      const q = query(
+        collection(db, 'questions'),
+        orderBy('createdAt', 'desc'),
+        limit(10)
+      );
+      const fetchedDocs = await getDocs(q);
+      const questions = fetchedDocs.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      commit('setRecentQuestions', questions);
     },
   },
 });
