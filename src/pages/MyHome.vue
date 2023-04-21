@@ -28,6 +28,12 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -69,13 +75,13 @@ aside {
   padding: 16px 12px;
   background: var(--color-bg-300);
   border-left: 1px solid var(--color-bg-500);
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
-h2 {
-  font-weight: 700;
-  font-size: var(--font-size-lg);
-  color: var(--color-primary);
+@media screen and (min-width: 992px) {
+  aside {
+    display: flex;
+  }
 }
 </style>
