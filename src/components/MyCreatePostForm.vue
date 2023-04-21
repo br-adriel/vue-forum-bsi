@@ -5,6 +5,7 @@
       id="postContent"
       rows="1"
       placeholder="Escreva aqui sua duvida ou problema..."
+      required
     ></textarea>
     <button type="submit" title="Publicar">
       <img
