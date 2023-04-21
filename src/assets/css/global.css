@@ -106,3 +106,9 @@ button:focus {
   width: min(100%, 1444px);
   margin: 0 auto;
 }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
