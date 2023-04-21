@@ -1,11 +1,12 @@
 <template>
-  <form @submit.prevent="submitForm">
+  <form @submit.prevent="sendForm">
     <textarea
       name="postContent"
       id="postContent"
       rows="1"
       placeholder="Escreva aqui sua duvida ou problema..."
       required
+      v-model="question.content"
     ></textarea>
     <button type="submit" title="Publicar">
       <img
@@ -19,10 +20,17 @@
 <script>
 export default {
   name: 'MyCreatePostForm',
-  props: {
-    submitForm: {
-      type: Function,
-      required: true,
+  data() {
+    return {
+      question: {
+        content: '',
+      },
+    };
+  },
+  methods: {
+    sendForm() {
+      this.$store.dispatch('createQuestion', this.question);
+      this.question = '';
     },
   },
 };
