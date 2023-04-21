@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <main>
-      <MyCreatePostForm />
+      <MyCreatePostForm :submitForm="createPost" />
       <section>
         <h2>Dúvidas e Perguntas</h2>
         <div class="questions">
@@ -24,6 +24,20 @@ import MyCreatePostForm from '@/components/MyCreatePostForm.vue';
 export default {
   name: 'MyHome',
   components: { MyCreatePostForm },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  methods: {
+    createPost(e) {
+      this.posts.push({
+        author: 'Anônimo',
+        content: e.target.postContent.value,
+      });
+      e.target.postContent.value = '';
+    },
+  },
 };
 </script>
 
