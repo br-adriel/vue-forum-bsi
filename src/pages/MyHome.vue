@@ -20,13 +20,16 @@
     <aside>
       <h2>Recentes</h2>
       <div class="recents">
-        <h3 class="no-recents" v-if="!questions || !questions.length">
+        <h3
+          class="no-recents"
+          v-if="!recentQuestions || !recentQuestions.length"
+        >
           Nenhuma pergunta disponivel ...T_T
         </h3>
         <MyPost
           detailed
           v-else
-          v-for="question of questions"
+          v-for="question of recentQuestions"
           :post="question"
           :key="question.id"
         />
@@ -46,6 +49,9 @@ export default {
     questions() {
       return this.$store.getters.getQuestions;
     },
+    recentQuestions() {
+      return this.$store.getters.getRecentQuestions;
+    },
   },
   data() {
     return {
@@ -54,6 +60,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('loadQuestions');
+    this.$store.dispatch('loadRecentQuestions');
   },
 };
 </script>
