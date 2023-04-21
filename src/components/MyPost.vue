@@ -52,6 +52,7 @@ export default {
   flex-direction: column;
   align-items: stretch;
   backdrop-filter: blur(2px);
+  background-color: var(--color-bg-100);
 }
 
 .myPost__top {
