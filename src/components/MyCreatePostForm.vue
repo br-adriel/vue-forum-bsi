@@ -28,9 +28,9 @@ export default {
     };
   },
   methods: {
-    sendForm() {
+    sendForm(e) {
       this.$store.dispatch('createQuestion', this.question);
-      this.question = '';
+      e.target.reset();
     },
   },
 };
