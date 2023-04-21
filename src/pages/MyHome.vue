@@ -1,18 +1,18 @@
 <template>
   <div class="container">
     <main>
-      <MyCreatePostForm />
+      <MyCreateQuestionForm />
       <section>
         <h2>Dúvidas e Perguntas</h2>
         <div class="questions">
-          <h3 class="no-questions" v-if="!posts || !posts.length">
+          <h3 class="no-questions" v-if="!questions || !questions.length">
             Nenhuma pergunta disponivel ...T_T
           </h3>
           <MyPost
             v-else
-            v-for="(post, index) of posts"
-            :post="post"
-            :key="index"
+            v-for="question of questions"
+            :post="question"
+            :key="question.id"
           />
         </div>
       </section>
@@ -20,15 +20,18 @@
     <aside>
       <h2>Recentes</h2>
       <div class="recents">
-        <h3 class="no-recents" v-if="!posts || !posts.length">
+        <h3
+          class="no-recents"
+          v-if="!recentQuestions || !recentQuestions.length"
+        >
           Nenhuma pergunta disponivel ...T_T
         </h3>
         <MyPost
           detailed
           v-else
-          v-for="(post, index) of posts"
-          :post="post"
-          :key="index"
+          v-for="question of recentQuestions"
+          :post="question"
+          :key="question.id"
         />
       </div>
     </aside>
@@ -36,16 +39,28 @@
 </template>
 
 <script>
-import MyCreatePostForm from '@/components/MyCreatePostForm.vue';
+import MyCreateQuestionForm from '@/components/MyCreateQuestionForm.vue';
 import MyPost from '@/components/MyPost.vue';
 
 export default {
   name: 'MyHome',
-  components: { MyCreatePostForm, MyPost },
+  components: { MyCreateQuestionForm, MyPost },
+  computed: {
+    questions() {
+      return this.$store.getters.getQuestions;
+    },
+    recentQuestions() {
+      return this.$store.getters.getRecentQuestions;
+    },
+  },
   data() {
     return {
       posts: [],
     };
+  },
+  mounted() {
+    this.$store.dispatch('loadQuestions');
+    this.$store.dispatch('loadRecentQuestions');
   },
 };
 </script>
