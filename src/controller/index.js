@@ -15,8 +15,10 @@ export default createStore({
     },
   },
   actions: {
-    appAlreadyStarted({ commit }) {
-      commit('setIsAppStarting', true);
+    appStarted({ commit }) {
+      setTimeout(() => {
+        commit('setIsAppStarting', false);
+      }, 2000);
     },
   },
 });
