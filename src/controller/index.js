@@ -49,7 +49,7 @@ export default createStore({
     async loadQuestions({ commit }) {
       const q = query(
         collection(db, 'questions'),
-        orderBy('createdAt', 'desc')
+        orderBy('interactions', 'desc')
       );
       const fetchedDocs = await getDocs(q);
       const questions = fetchedDocs.docs.map((doc) => {
