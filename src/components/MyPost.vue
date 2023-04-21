@@ -107,6 +107,10 @@ export default {
   gap: 10px;
 }
 
+.myPost.detailed .myPost__actions {
+  padding: 20px 18px;
+}
+
 .myPost__actions button img {
   width: 24px;
   height: 24px;
