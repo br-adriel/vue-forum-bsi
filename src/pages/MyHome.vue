@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <main>
-      <MyCreatePostForm :submitForm="createPost" />
+      <MyCreatePostForm />
       <section>
         <h2>Dúvidas e Perguntas</h2>
         <div class="questions">
@@ -46,15 +46,6 @@ export default {
     return {
       posts: [],
     };
-  },
-  methods: {
-    createPost(e) {
-      this.posts.unshift({
-        author: 'Anônimo',
-        content: e.target.postContent.value,
-      });
-      e.target.postContent.value = '';
-    },
   },
 };
 </script>
