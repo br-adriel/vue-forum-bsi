@@ -1,5 +1,12 @@
 import { db } from '@/firebase.config';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+  serverTimestamp,
+} from 'firebase/firestore';
 import { createStore } from 'vuex';
 
 export default createStore({
@@ -24,7 +31,6 @@ export default createStore({
     },
     addQuestion(state, question) {
       state.questions.unshift(question);
-      if (state.questions.length > 10) state.questions.pop();
     },
   },
   actions: {
@@ -39,6 +45,20 @@ export default createStore({
         createdAt: serverTimestamp(),
       });
       commit('addQuestion', { id: savedQuestion.id, ...question });
+    },
+    async loadQuestions({ commit }) {
+      const q = query(
+        collection(db, 'questions'),
+        orderBy('createdAt', 'desc')
+      );
+      const fetchedDocs = await getDocs(q);
+      const questions = fetchedDocs.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      commit('setQuestions', questions);
     },
   },
 });
