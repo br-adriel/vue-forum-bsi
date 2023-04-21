@@ -1,10 +1,11 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <textarea
       name="postContent"
       id="postContent"
       rows="1"
       placeholder="Escreva aqui sua duvida ou problema..."
+      required
     ></textarea>
     <button type="submit" title="Publicar">
       <img
@@ -18,6 +19,12 @@
 <script>
 export default {
   name: 'MyCreatePostForm',
+  props: {
+    submitForm: {
+      type: Function,
+      required: true,
+    },
+  },
 };
 </script>
 

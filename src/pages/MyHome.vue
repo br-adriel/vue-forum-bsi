@@ -1,18 +1,35 @@
 <template>
   <div class="container">
     <main>
-      <MyCreatePostForm />
+      <MyCreatePostForm :submitForm="createPost" />
       <section>
         <h2>Dúvidas e Perguntas</h2>
         <div class="questions">
-          <h3 class="no-questions">Nenhuma pergunta disponivel ...T_T</h3>
+          <h3 class="no-questions" v-if="!posts || !posts.length">
+            Nenhuma pergunta disponivel ...T_T
+          </h3>
+          <MyPost
+            v-else
+            v-for="(post, index) of posts"
+            :post="post"
+            :key="index"
+          />
         </div>
       </section>
     </main>
     <aside>
       <h2>Recentes</h2>
       <div class="recents">
-        <h3 class="no-recents">Nenhuma pergunta disponivel ...T_T</h3>
+        <h3 class="no-recents" v-if="!posts || !posts.length">
+          Nenhuma pergunta disponivel ...T_T
+        </h3>
+        <MyPost
+          detailed
+          v-else
+          v-for="(post, index) of posts"
+          :post="post"
+          :key="index"
+        />
       </div>
     </aside>
   </div>
@@ -20,10 +37,25 @@
 
 <script>
 import MyCreatePostForm from '@/components/MyCreatePostForm.vue';
+import MyPost from '@/components/MyPost.vue';
 
 export default {
   name: 'MyHome',
-  components: { MyCreatePostForm },
+  components: { MyCreatePostForm, MyPost },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  methods: {
+    createPost(e) {
+      this.posts.unshift({
+        author: 'Anônimo',
+        content: e.target.postContent.value,
+      });
+      e.target.postContent.value = '';
+    },
+  },
 };
 </script>
 

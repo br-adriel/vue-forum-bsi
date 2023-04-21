@@ -1,10 +1,10 @@
 <template>
   <div :class="[detailed ? 'detailed' : '', 'myPost']">
     <div class="myPost__top">
-      <h3>Não consigo mudar a versão do meu Node no linux, como faço?</h3>
+      <h3>{{ post.content }}</h3>
     </div>
     <div class="myPost__bottom">
-      <h4 class="myPost__author">Gustavo</h4>
+      <h4 class="myPost__author">{{ post.author }}</h4>
       <div class="myPost__actions">
         <button type="button" title="Favoritar">
           <img src="@/assets/img/icons/icon-heart.svg" alt="Ícone de coração" />
@@ -35,6 +35,10 @@ export default {
       type: Boolean,
       required: false,
     },
+    post: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>
@@ -52,6 +56,7 @@ export default {
   flex-direction: column;
   align-items: stretch;
   backdrop-filter: blur(2px);
+  background-color: var(--color-bg-100);
 }
 
 .myPost__top {
@@ -104,6 +109,10 @@ export default {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.myPost.detailed .myPost__actions {
+  padding: 20px 18px;
 }
 
 .myPost__actions button img {
