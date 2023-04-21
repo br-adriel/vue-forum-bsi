@@ -1,16 +1,23 @@
 <template>
-  <section>
-    <img
-      src="@/assets/img/logo.png"
-      title="Logo do Forum BSI"
-      alt="Letra f maiúscula estilizada com tons da cor rosa"
-    />
-  </section>
+  <Transition>
+    <section v-if="isAppStarting">
+      <img
+        src="@/assets/img/logo.png"
+        title="Logo do Forum BSI"
+        alt="Letra f maiúscula estilizada com tons da cor rosa"
+      />
+    </section>
+  </Transition>
 </template>
 
 <script>
 export default {
   name: 'MySplashScreen',
+  computed: {
+    isAppStarting() {
+      return this.$store.getters.getIsAppStarting;
+    },
+  },
 };
 </script>
 
@@ -21,6 +28,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-100);
 }
 
 img {
@@ -33,5 +44,13 @@ img {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+.v-leave-active {
+  transition: opacity 300ms ease-out;
+}
+
+.v-leave-to {
+  opacity: 0;
 }
 </style>
