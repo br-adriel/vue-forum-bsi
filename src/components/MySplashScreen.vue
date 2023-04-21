@@ -21,6 +21,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-100);
 }
 
 img {
