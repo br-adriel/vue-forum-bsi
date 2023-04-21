@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <textarea
       name="postContent"
       id="postContent"
@@ -19,6 +19,12 @@
 <script>
 export default {
   name: 'MyCreatePostForm',
+  props: {
+    submitForm: {
+      type: Function,
+      required: true,
+    },
+  },
 };
 </script>
 
