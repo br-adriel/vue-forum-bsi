@@ -42,7 +42,6 @@ textarea {
 }
 
 button {
-  padding: 8px;
   border-radius: 8px;
 }
 
@@ -53,6 +52,6 @@ button img {
 }
 
 button:hover {
-  background-color: var(--color-bg-500);
+  filter: brightness(1.3);
 }
 </style>

@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style setup>
+<style scoped>
 form {
   display: flex;
   justify-content: space-between;
