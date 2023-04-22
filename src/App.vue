@@ -15,6 +15,7 @@ export default {
   components: { MyHeader, MySplashScreen },
   mounted() {
     this.$store.dispatch('appStarted');
+    this.$store.dispatch('loadUserOnStart');
   },
 };
 </script>

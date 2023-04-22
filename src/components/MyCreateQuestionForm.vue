@@ -20,6 +20,11 @@
 <script>
 export default {
   name: 'MyCreateQuestionForm',
+  computed: {
+    user() {
+      return this.$store.getters.getUser;
+    },
+  },
   data() {
     return {
       question: {
@@ -29,7 +34,10 @@ export default {
   },
   methods: {
     sendForm(e) {
-      this.$store.dispatch('createQuestion', this.question);
+      this.$store.dispatch('createQuestion', {
+        ...this.question,
+        author: this.user.displayName,
+      });
       e.target.reset();
     },
   },
