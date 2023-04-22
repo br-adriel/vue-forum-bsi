@@ -38,9 +38,10 @@ button {
 .user-info {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
   font-weight: 600;
   font-size: var(--font-size-normal);
+  flex-direction: column;
 }
 
 .user-name {
@@ -63,6 +64,11 @@ h4 {
 }
 
 @media screen and (min-width: 576px) {
+  .user-info {
+    flex-direction: row;
+    gap: 16px;
+  }
+
   h4 {
     display: block;
   }
