@@ -1,4 +1,5 @@
 import MyHome from '@/pages/MyHome';
+import MySearch from '@/pages/MySearch';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
@@ -6,6 +7,11 @@ const routes = [
     path: '/',
     name: 'myHomePage',
     component: MyHome,
+  },
+  {
+    path: '/search',
+    name: 'mySearchPage',
+    component: MySearch,
   },
 ];
 
