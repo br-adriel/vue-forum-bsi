@@ -1,10 +1,11 @@
 <template>
-  <form>
+  <form @submit.prevent="searchQuestions">
     <input
       type="search"
       name="searchTerms"
       id="searchTerms"
       placeholder="procure aqui..."
+      v-model="search"
     />
     <button type="submit" title="Pesquisar">
       <img src="@/assets/img/icons/icon-search.svg" alt="Ícone de lupa" />
@@ -15,6 +16,16 @@
 <script>
 export default {
   name: 'MySearchForm',
+  data() {
+    return {
+      search: '',
+    };
+  },
+  methods: {
+    searchQuestions() {
+      this.$router.push({ path: `/search`, query: { content: this.search } });
+    },
+  },
 };
 </script>
 
