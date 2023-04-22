@@ -107,5 +107,12 @@ export default createStore({
       signOutGoogle();
       commit('setUser', null);
     },
+    loadUserOnStart({ commit }) {
+      const sessionToken = sessionStorage.getItem('@AuthFirebase:token');
+      const sessionUser = sessionStorage.getItem('@AuthFirebase:user');
+      if (sessionToken && sessionUser) {
+        commit('setUser', JSON.parse(sessionUser));
+      } else commit('setUser', null);
+    },
   },
 });
