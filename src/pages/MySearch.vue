@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <main>
-      <h2>Mostando resultados para "{{ query }}"</h2>
-      <h3 v-if="!resultado || !resultado.length" class="no-results">
-        Nenhuma pergunta disponivel ...T_T
-      </h3>
-      <section>
+      <h2 v-if="query">Perguntas feitas por "{{ query }}"</h2>
+      <div v-if="!resultado || !resultado.length" class="no-results">
+        <h3>Nenhuma pergunta disponivel ...T_T</h3>
+      </div>
+      <section v-if="resultado && resultado.length">
         <MyQuestion
           v-for="question of resultado"
           :post="question"
@@ -18,6 +18,8 @@
 
 <script>
 import MyQuestion from '@/components/MyQuestion.vue';
+import { db } from '@/firebase.config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 export default {
   name: 'MySearch',
@@ -26,10 +28,34 @@ export default {
     query() {
       return this.$route.query.content;
     },
-    resultado() {
-      return () => {
-        return [];
-      };
+  },
+  data() {
+    return {
+      resultado: [],
+    };
+  },
+  methods: {
+    async searchQuestionsByAuthor(authorName) {
+      const q = await query(
+        collection(db, 'questions'),
+        where('author', '==', authorName)
+      );
+
+      const results = await getDocs(q);
+      this.resultado = results.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+    },
+  },
+  mounted() {
+    this.searchQuestionsByAuthor(this.query);
+  },
+  watch: {
+    query(newValue) {
+      this.searchQuestionsByAuthor(newValue);
     },
   },
 };
@@ -40,14 +66,11 @@ export default {
 main {
   flex-grow: 1;
   display: flex;
-}
-.container {
   flex-direction: column;
 }
 
 main {
   padding: 16px 32px;
-  flex-wrap: wrap;
 }
 
 h2 {
@@ -67,8 +90,10 @@ section {
 }
 
 .no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   flex-grow: 1;
-  align-self: center;
 }
 </style>
