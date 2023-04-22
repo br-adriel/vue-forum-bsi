@@ -1,4 +1,5 @@
 import { db } from '@/firebase.config';
+import { signInGoogle, signOutGoogle } from '@/utils/auth/googleAuth';
 import {
   addDoc,
   collection,
@@ -15,6 +16,7 @@ export default createStore({
     isAppStarting: true,
     questions: [],
     recentQuestions: [],
+    user: null,
   },
   getters: {
     getIsAppStarting(state) {
@@ -25,6 +27,9 @@ export default createStore({
     },
     getRecentQuestions(state) {
       return state.recentQuestions;
+    },
+    getUser(state) {
+      return state.user;
     },
   },
   mutations: {
@@ -45,6 +50,9 @@ export default createStore({
       if (state.recentQuestions.length > 10) {
         state.recentQuestions.pop();
       }
+    },
+    setUser(state, newUser) {
+      state.user = newUser;
     },
   },
   actions: {
@@ -90,6 +98,14 @@ export default createStore({
         };
       });
       commit('setRecentQuestions', questions);
+    },
+    async logUserIn({ commit }) {
+      const user = await signInGoogle();
+      commit('setUser', user);
+    },
+    async logUserOut({ commit }) {
+      signOutGoogle();
+      commit('setUser', null);
     },
   },
 });
