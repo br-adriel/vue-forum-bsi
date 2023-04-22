@@ -86,6 +86,7 @@ body {
 }
 
 button {
+  color: var(--color-text);
   background: none;
   border: none;
   border-radius: 4px;
@@ -94,7 +95,7 @@ button {
 }
 
 button:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.5);
   transform: scale(0.96);
 }
 
