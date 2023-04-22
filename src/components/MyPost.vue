@@ -105,10 +105,10 @@ export default {
 }
 
 .myPost__actions {
-  padding: 28px 20px;
+  padding: 12px 8px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
 }
 
 .myPost.detailed .myPost__actions {
@@ -116,14 +116,25 @@ export default {
 }
 
 .myPost__actions button img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.myPost__actions.myPost.detailed button img {
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+
+@media screen and (min-width: 768px) {
+  .myPost__actions {
+    padding: 28px 20px;
+    gap: 10px;
+  }
+
+  .myPost__actions button img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .myPost.detailed .myPost__actions button img {
+    width: 20px;
+    height: 20px;
+  }
 }
 </style>
