@@ -8,7 +8,7 @@
           <h3 class="no-questions" v-if="!questions || !questions.length">
             Nenhuma pergunta disponivel ...T_T
           </h3>
-          <MyPost
+          <MyQuestion
             v-else
             v-for="question of questions"
             :post="question"
@@ -26,7 +26,7 @@
         >
           Nenhuma pergunta disponivel ...T_T
         </h3>
-        <MyPost
+        <MyQuestion
           detailed
           v-else
           v-for="question of recentQuestions"
@@ -40,11 +40,11 @@
 
 <script>
 import MyCreateQuestionForm from '@/components/MyCreateQuestionForm.vue';
-import MyPost from '@/components/MyPost.vue';
+import MyQuestion from '@/components/MyQuestion.vue';
 
 export default {
   name: 'MyHome',
-  components: { MyCreateQuestionForm, MyPost },
+  components: { MyCreateQuestionForm, MyQuestion },
   computed: {
     questions() {
       return this.$store.getters.getQuestions;
