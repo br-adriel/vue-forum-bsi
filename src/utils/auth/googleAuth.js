@@ -16,9 +16,14 @@ export function signInGoogle() {
     const token = credential.accessToken;
     const user = result.user;
 
+    const userInfo = {
+      displayName: user.providerData[0].displayName,
+      photo: user.providerData[0].photoURL,
+    };
+
     if (token) {
       sessionStorage.setItem('@AuthFirebase:token', token);
-      sessionStorage.setItem('@AuthFirebase:user', JSON.stringify(user));
+      sessionStorage.setItem('@AuthFirebase:user', JSON.stringify(userInfo));
 
       const userData = {
         name: user.displayName,
@@ -28,11 +33,7 @@ export function signInGoogle() {
       await setDoc(docRef, userData, { merge: true });
     }
 
-    console.log(user);
-    return {
-      displayName: user.providerData[0].displayName,
-      photo: user.providerData[0].photoURL,
-    };
+    return userInfo;
   });
 }
 
