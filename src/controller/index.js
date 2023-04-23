@@ -69,7 +69,12 @@ export default createStore({
     },
     /** Carrega nova questão para o banco de dados e a adiciona ao array de
      * questões */
-    async createQuestion({ commit }, question) {
+    async createQuestion({ commit, state }, question) {
+      // Adiciona o autor da questão caso o usuário esteja logado
+      if (state.user) {
+        question = { ...question, author: state.user.displayName };
+      }
+
       const savedQuestion = await addDoc(collection(db, 'questions'), {
         ...question,
         interactions: 0,

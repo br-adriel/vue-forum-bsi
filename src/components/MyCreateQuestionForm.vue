@@ -21,12 +21,6 @@
 <script>
 export default {
   name: 'MyCreateQuestionForm',
-  computed: {
-    /** Guarda informações do usuário logado */
-    user() {
-      return this.$store.getters.getUser;
-    },
-  },
   data() {
     return {
       /** Mapeia os valores digitados pelo o usuário no form */
@@ -40,7 +34,6 @@ export default {
     sendForm(e) {
       this.$store.dispatch('createQuestion', {
         ...this.question,
-        author: this.user.displayName,
       }); // chama a action createQuestion para salvar a questão no banco de dados
       e.target.reset(); // Limpa os campos do formulário após sua submissão
     },
