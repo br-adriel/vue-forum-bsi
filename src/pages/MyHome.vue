@@ -60,11 +60,6 @@ export default {
       return this.$store.getters.getRecentQuestions;
     },
   },
-  data() {
-    return {
-      posts: [],
-    };
-  },
   mounted() {
     /** Aciona actin para puxar questões do banco de dados  */
     this.$store.dispatch('loadQuestions');
