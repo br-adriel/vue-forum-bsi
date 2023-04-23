@@ -1,4 +1,5 @@
 <template>
+  <!-- Formulário para a criação de novas questões no fórum -->
   <form @submit.prevent="sendForm">
     <textarea
       name="postContent"
@@ -21,24 +22,27 @@
 export default {
   name: 'MyCreateQuestionForm',
   computed: {
+    /** Guarda informações do usuário logado */
     user() {
       return this.$store.getters.getUser;
     },
   },
   data() {
     return {
+      /** Mapeia os valores digitados pelo o usuário no form */
       question: {
         content: '',
       },
     };
   },
   methods: {
+    /** Envia os dados do formulário para o banco de dados */
     sendForm(e) {
       this.$store.dispatch('createQuestion', {
         ...this.question,
         author: this.user.displayName,
-      });
-      e.target.reset();
+      }); // chama a action createQuestion para salvar a questão no banco de dados
+      e.target.reset(); // Limpa os campos do formulário após sua submissão
     },
   },
 };

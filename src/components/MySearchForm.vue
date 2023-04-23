@@ -1,4 +1,5 @@
 <template>
+  <!-- Formulário para a busca de questões pelo nome do autor -->
   <form @submit.prevent="searchQuestions">
     <input
       type="search"
@@ -18,10 +19,11 @@ export default {
   name: 'MySearchForm',
   data() {
     return {
-      search: '',
+      search: '', // Mapeia os valores dos campos do formulário
     };
   },
   methods: {
+    /** Redireciona o usuário para página de busca de questões */
     searchQuestions() {
       this.$router.push({ path: `/search`, query: { content: this.search } });
     },
