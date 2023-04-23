@@ -1,4 +1,6 @@
 <template>
+  <!-- A classe detailed controla a disposição dos elementos e a exibição ou não
+    do nome do autor da pergunta -->
   <div :class="[detailed ? 'detailed' : '', 'myPost']">
     <div class="myPost__top">
       <h3>{{ post.content }}</h3>
@@ -30,11 +32,14 @@
 export default {
   name: 'MyPost',
   props: {
+    // Quando true o autor do post é exibido e tem seus elementos dispostos
+    // verticalmente, quando false o contrário ocorre.
     detailed: {
       default: false,
       type: Boolean,
       required: false,
     },
+    // Guarda as informações referentes a questão exibida
     post: {
       type: Object,
       required: true,
