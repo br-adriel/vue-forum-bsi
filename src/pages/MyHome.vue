@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <main>
+      <!-- Formulário para criação de questões-->
       <MyCreateQuestionForm />
+
+      <!-- Feed de questões -->
       <section>
         <h2>Dúvidas e Perguntas</h2>
         <div class="questions">
@@ -17,6 +20,8 @@
         </div>
       </section>
     </main>
+
+    <!-- Listagem de questões recentes -->
     <aside>
       <h2>Recentes</h2>
       <div class="recents">
@@ -46,9 +51,11 @@ export default {
   name: 'MyHome',
   components: { MyCreateQuestionForm, MyQuestion },
   computed: {
+    /** Armazena as questões exibidas */
     questions() {
       return this.$store.getters.getQuestions;
     },
+    /** Armazena as questões recentes exibidas */
     recentQuestions() {
       return this.$store.getters.getRecentQuestions;
     },
@@ -59,7 +66,9 @@ export default {
     };
   },
   mounted() {
+    /** Aciona actin para puxar questões do banco de dados  */
     this.$store.dispatch('loadQuestions');
+    /** Aciona actin para puxar questões recentes do banco de dados  */
     this.$store.dispatch('loadRecentQuestions');
   },
 };
