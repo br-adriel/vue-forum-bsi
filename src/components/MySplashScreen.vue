@@ -1,4 +1,6 @@
 <template>
+  <!-- Tela de entrada mostrada quando a aplicação é aberta -->
+  <!-- Componente nativo para transições de entrada/saída -->
   <Transition>
     <section v-if="isAppStarting">
       <img
@@ -14,6 +16,7 @@
 export default {
   name: 'MySplashScreen',
   computed: {
+    // Responsável por determinar se o componente deve ser exibido ou não
     isAppStarting() {
       return this.$store.getters.getIsAppStarting;
     },
