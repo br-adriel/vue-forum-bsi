@@ -9,6 +9,33 @@ onboarding de uma empresa.
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
+## Funcionalidades e limitações
+
+Nessa seção você encontra todas as funcionalidades que foram implementadas no
+projeto, suas limitações.
+
+### Autenticação
+
+É possível fazer login na aplicação utilizando a sua conta do Google. As
+perguntas feitas por um usuário logado exibem seu nome.
+
+### Criação de perguntas
+
+A aplicação permite a criação de novas perguntas no fórum, independentemente se
+você está logado ou não, quando a pergunta é feita por um usuário logado seu
+nome é exibido junto com a pergunta (apenas quando o componente MyQuestion tem a
+prop detailed).
+
+### Busca de perguntas
+
+A aplicação permite que você filtre as perguntas exibidas por autor por meio da
+barra de pesquisa presente no topo da página.
+
+Inicialmente a ideia era que a busca pudesse filtrar também via o conteúdo das
+perguntas, porém como a firestore não possui uma funcionalidade similiar ao
+operador `LIKE` dos bancos de dados SQL, essa função ficou limitada à filtragem
+pelo nome exato dos autores da perguntas.
+
 ## Executando o projeto localmente
 
 Para executar esse projeto na sua máquina você precisa criar um projeto no
@@ -25,12 +52,12 @@ Para executar esse projeto na sua máquina você precisa criar um projeto no
 
 4. Desabilite o Google Analytics, clique em `Criar projeto` e aguarde até que o
    projeto seja criado
-   
-   <img width="960" alt="Captura de tela 2023-04-22 213106" src="https://user-images.githubusercontent.com/49590887/233813801-cf1cc23e-849e-4400-8ea4-f1ee0a6cd03b.png">
+
+   ![Captura de tela exibindo a página de criação de projeto do Firebase](https://user-images.githubusercontent.com/49590887/233813801-cf1cc23e-849e-4400-8ea4-f1ee0a6cd03b.png)
 
 5. Na guia lateral selecione a opção `Firestore Database` dentro de `Criação`
 
-   <img width="960" alt="Captura de tela 2023-04-22 213316" src="https://user-images.githubusercontent.com/49590887/233813807-8a10f6b9-1786-4a4c-9c2c-3fcabd6a16ab.png">
+   ![Captura de tela exibindo a página inicial do projeto do Firebase](https://user-images.githubusercontent.com/49590887/233813807-8a10f6b9-1786-4a4c-9c2c-3fcabd6a16ab.png)
 
 6. Aperte no botão `Criar banco de dados`
 
@@ -41,20 +68,19 @@ Para executar esse projeto na sua máquina você precisa criar um projeto no
 
 9. Vá na seção regras e altere a linha 5 para `allow read, write: if true;`
 
-   <img width="960" alt="Captura de tela 2023-04-22 214326" src="https://user-images.githubusercontent.com/49590887/233813878-00e2cb6e-3b9b-4b1b-aa47-8df3f66ecdb6.png">
-
+   ![Captura de tela exibindo a página de regras da Firestore Database](https://user-images.githubusercontent.com/49590887/233813878-00e2cb6e-3b9b-4b1b-aa47-8df3f66ecdb6.png)
 
 10. Clique no botão `Publicar`
 
-11. Na guia lateral seleciona a opção `Authentication` dentro de `Criação`
+11. Na guia lateral selecione a opção `Authentication` dentro de `Criação`
 
-   <img width="960" alt="Captura de tela 2023-04-22 214614" src="https://user-images.githubusercontent.com/49590887/233813823-a7c1fb51-67c1-47fd-bde4-08730b3cc7dd.png">
+    ![Captura de tela exibindo a barra lateral do firebase](https://user-images.githubusercontent.com/49590887/233813823-a7c1fb51-67c1-47fd-bde4-08730b3cc7dd.png)
 
 12. Clique no botão `Vamos começar`
 
 13. Na área `Outros provedores` selecione a opção `Google`
 
-   <img width="960" alt="Captura de tela 2023-04-22 214740" src="https://user-images.githubusercontent.com/49590887/233813904-9493df54-6369-424f-911f-e45c17c15d11.png">
+    ![Captura de tela exibindo a lista de provedres de autenticação do Firebase](https://user-images.githubusercontent.com/49590887/233813904-9493df54-6369-424f-911f-e45c17c15d11.png)
 
 14. Marque a caixinha `Ativar`
 
@@ -63,8 +89,8 @@ Para executar esse projeto na sua máquina você precisa criar um projeto no
 
 16. Na guia lateral selecione a opção `Visão geral do projeto` e clique no botão
     `</>`
-    
-    <img width="960" alt="Captura de tela 2023-04-22 215120" src="https://user-images.githubusercontent.com/49590887/233813916-72845f0b-2d6f-46c6-9761-97481b58fc88.png">
+
+    ![Captura de tela exibindo a página inicial do projeto do Firebase com uma seta apontando para o botão de adicionar app web](https://user-images.githubusercontent.com/49590887/233813916-72845f0b-2d6f-46c6-9761-97481b58fc88.png)
 
 17. Digite um nome para o app e clique no botão `Registrar app`
 
