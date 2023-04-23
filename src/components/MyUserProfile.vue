@@ -1,4 +1,5 @@
 <template>
+  <!-- Interface de autenticação da aplicação -->
   <div v-if="user" class="user-info">
     <img :src="user.photo" alt="Sua imagem de perfil" />
     <div class="user-name">
@@ -13,14 +14,17 @@
 export default {
   name: 'MyUserProfile',
   computed: {
+    /** Guarda informações do usuário logado */
     user() {
       return this.$store.getters.getUser;
     },
   },
   methods: {
+    /** Invoca a action de login de usuário */
     openSignIn() {
       this.$store.dispatch('logUserIn');
     },
+    /** Invoca a action de logout */
     signOut() {
       this.$store.dispatch('logUserOut');
     },
