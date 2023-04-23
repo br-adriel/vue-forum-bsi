@@ -36,6 +36,53 @@ perguntas, porém como a firestore não possui uma funcionalidade similiar ao
 operador `LIKE` dos bancos de dados SQL, essa função ficou limitada à filtragem
 pelo nome exato dos autores da perguntas.
 
+## Como expandir o projeto
+
+Nessa seção você encontra sugestões de funcionalidade que você pode implementar
+para expandir o projeto.
+
+### Adição de testes
+
+Você pode adicionar testes automátizados para verificar se os componentes estão
+funcionando corretamente.
+
+### Interação nas perguntas
+
+Você pode implementar a funcionalidade dos botões favoritar, gostei e não gostei.
+
+Essa funcionalidade envolve as tarefas:
+
+- Implementação da lógica de como essas interações devem ser salvas e recuperadas
+do banco de dados
+
+- Exibição de diferentes ícones dos botões de favoritar, gostei e não gostei para
+quando estão ativos
+
+- Exibição de contador de interações próximo a cada botão
+
+### Comentários
+
+Você pode implementar a funcionalidade de comentar postagens, dessa forma as dúvidas
+poderiam ser respondidas diretamente no site.
+
+Essa funcionalidade envolve as tarefas:
+
+- Implementação da lógica de como os comentários devem ser salvos e recuperados do
+banco de dados
+
+- Implementação de um componente para exibição de comentários
+
+- Redesign do componente `MyQuestion` para que ele possa agregar um botão ou uma
+caixa de texto para que os usuários possam escrever seus comentários
+
+Essa funcionalidade pode potencialmente ser desdobrada na criação de uma nova página
+onde apenas um post é exeibido com seus detalhes, lista de comentários e interações.
+
+### Novos métodos de autenticação
+
+Você pode implementar outros métodos de autenticação com login social disponíveis no
+Firebase.
+
 ## Executando o projeto localmente
 
 Para executar esse projeto na sua máquina você precisa criar um projeto no
