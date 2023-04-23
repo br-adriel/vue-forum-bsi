@@ -1,4 +1,5 @@
 <template>
+  <!-- Lista resultado da busca realizada ao submeter formulário de pesquisa -->
   <div class="container">
     <main>
       <h2 v-if="query">Perguntas feitas por "{{ query }}"</h2>
@@ -25,16 +26,18 @@ export default {
   name: 'MySearch',
   components: { MyQuestion },
   computed: {
+    /** Guarda os termos de busca usados na URL */
     query() {
       return this.$route.query.content;
     },
   },
   data() {
     return {
-      resultado: [],
+      resultado: [], // guarda o resultado da busca
     };
   },
   methods: {
+    /** Recupera questões do banco de dados de acordo com o nome do autor passado */
     async searchQuestionsByAuthor(authorName) {
       const q = await query(
         collection(db, 'questions'),
@@ -51,9 +54,10 @@ export default {
     },
   },
   mounted() {
-    this.searchQuestionsByAuthor(this.query);
+    this.searchQuestionsByAuthor(this.query); // realiza busca ao iniciar o componente
   },
   watch: {
+    /** monitora url para detectar novas pesquisas */
     query(newValue) {
       this.searchQuestionsByAuthor(newValue);
     },
