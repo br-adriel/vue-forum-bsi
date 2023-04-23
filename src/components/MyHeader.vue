@@ -1,4 +1,5 @@
 <template>
+  <!-- Header da aplicação -->
   <header>
     <div class="container">
       <MyUserProfile />
