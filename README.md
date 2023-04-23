@@ -9,6 +9,21 @@ onboarding de uma empresa.
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
+## Índice
+
+- [Funcionalidades e limitações](#funcionalidades-e-limitações)
+  - [Autenticação](#autenticação)
+  - [Criação de perguntas](#criação-de-perguntas)
+  - [Busca de perguntas](#busca-de-perguntas)
+- [Como expandir o projeto](#como-expandir-o-projeto)
+  - [Adição de testes](#adição-de-testes)
+  - [Interação nas perguntas](#interação-nas-perguntas)
+  - [Comentários](#comentários)
+  - [Novos métodos de autenticação](#novos-métodos-de-autenticação)
+- [Executando o projeto localmente](#executando-o-projeto-localmente)
+  - [Configurando o projeto no firebase](#configurando-o-projeto-no-firebase)
+  - [Executando na sua máquina](#executando-na-sua-máquina)
+
 ## Funcionalidades e limitações
 
 Nessa seção você encontra todas as funcionalidades que foram implementadas no
@@ -53,10 +68,10 @@ Você pode implementar a funcionalidade dos botões favoritar, gostei e não gos
 Essa funcionalidade envolve as tarefas:
 
 - Implementação da lógica de como essas interações devem ser salvas e recuperadas
-do banco de dados
+  do banco de dados
 
 - Exibição de diferentes ícones dos botões de favoritar, gostei e não gostei para
-quando estão ativos
+  quando estão ativos
 
 - Exibição de contador de interações próximo a cada botão
 
@@ -68,12 +83,12 @@ poderiam ser respondidas diretamente no site.
 Essa funcionalidade envolve as tarefas:
 
 - Implementação da lógica de como os comentários devem ser salvos e recuperados do
-banco de dados
+  banco de dados
 
 - Implementação de um componente para exibição de comentários
 
 - Redesign do componente `MyQuestion` para que ele possa agregar um botão ou uma
-caixa de texto para que os usuários possam escrever seus comentários
+  caixa de texto para que os usuários possam escrever seus comentários
 
 Essa funcionalidade pode potencialmente ser desdobrada na criação de uma nova página
 onde apenas um post é exeibido com seus detalhes, lista de comentários e interações.
